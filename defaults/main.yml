@@ -1,0 +1,43 @@
+---
+dubzland_redis_supervised: 'no'
+dubzland_redis_loglevel: 'notice'
+dubzland_redis_logfile: '/var/log/redis/{{ dubzland_redis_service_name }}.log'
+dubzland_redis_syslog_enabled: 'no'
+dubzland_redis_syslog_ident: 'redis'
+dubzland_redis_syslog_facility: 'local0'
+
+dubzland_redis_bind_ip: '127.0.0.1'
+dubzland_redis_port: 6379
+dubzland_redis_tcp_backlog: 511
+dubzland_redis_tcp_keepalive: 300
+
+dubzland_redis_unix_socket: ''
+dubzland_redis_unix_socket_perm: 700
+
+dubzland_redis_timeout: 0
+
+dubzland_redis_databases: 16
+
+dubzland_redis_save:
+  - '900 1'
+  - '300 10'
+  - '60 10000'
+
+dubzland_redis_stop_writes_on_bgsave_error: 'yes'
+
+dubzland_redis_rdbcompression: 'yes'
+dubzland_redis_rdbchecksum: 'yes'
+dubzland_redis_dbfilename: 'dump.rdb'
+dubzland_redis_dbdir: '/var/lib/redis'
+
+dubzland_redis_maxclients: 10000
+dubzland_redis_maxmemory: 0
+dubzland_redis_maxmemory_policy: 'noeviction'
+dubzland_redis_maxmemory_samples: 5
+
+dubzland_redis_appendonly: 'no'
+dubzland_redis_appendfsync: 'everysec'
+
+dubzland_redis_includes: []
+
+dubzland_redis_disabled_commands: []

@@ -1,0 +1,54 @@
+{{ ansible_managed | comment }}
+
+daemonize yes
+pidfile /var/run/redis/{{ dubzland_redis_service_name }}.pid
+
+supervised {{ dubzland_redis_supervised }}
+logfile {{ dubzland_redis_logfile }}
+loglevel {{ dubzland_redis_loglevel }}
+syslog-enabled {{ dubzland_redis_syslog_enabled }}
+syslog-ident {{ dubzland_redis_syslog_ident }}
+syslog-facility {{ dubzland_redis_syslog_facility }}
+
+bind {{ dubzland_redis_bind_ip }}
+port {{ dubzland_redis_port }}
+tcp-backlog {{ dubzland_redis_tcp_backlog }}
+tcp-keepalive {{ dubzland_redis_tcp_keepalive }}
+
+protected-mode yes
+
+{% if dubzland_redis_unix_socket %}
+unixsocket {{ dubzland_redis_unix_socket }}
+unixsocketperm {{ dubzland_redis_unix_socket_perm }}
+{% endif %}
+
+timeout {{ dubzland_redis_timeout }}
+
+databases {{ dubzland_redis_databases }}
+
+{% for save in dubzland_redis_save %}
+save {{ save }}
+{% endfor %}
+
+stop-writes-on-bgsave-error {{ dubzland_redis_stop_writes_on_bgsave_error }}
+
+rdbcompression {{ dubzland_redis_rdbcompression }}
+rdbchecksum {{ dubzland_redis_rdbchecksum }}
+dbfilename {{ dubzland_redis_dbfilename }}
+dir {{ dubzland_redis_dbdir }}
+
+maxclients {{ dubzland_redis_maxclients }}
+maxmemory {{ dubzland_redis_maxmemory }}
+maxmemory-policy {{ dubzland_redis_maxmemory_policy }}
+maxmemory-samples {{ dubzland_redis_maxmemory_samples }}
+
+appendonly {{ dubzland_redis_appendonly }}
+appendfsync {{ dubzland_redis_appendfsync }}
+
+{% for include in dubzland_redis_includes %}
+include {{ include }}
+{% endfor %}
+
+{% for command in dubzland_redis_disabled_commands %}
+rename-command {{ command }} ""
+{% endfor %}

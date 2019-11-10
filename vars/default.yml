@@ -1,0 +1,5 @@
+---
+dubzland_redis_packages:
+  - redis-server
+
+dubzland_redis_service_name: redis-server

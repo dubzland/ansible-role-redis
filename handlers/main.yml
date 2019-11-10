@@ -1,0 +1,10 @@
+---
+- name: enable redis
+  service:
+    name: "{{ dubzland_redis_service_name }}"
+    enabled: True
+
+- name: restart redis
+  service:
+    name: "{{ dubzland_redis_service_name }}"
+    state: restarted

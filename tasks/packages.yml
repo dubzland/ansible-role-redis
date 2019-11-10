@@ -1,0 +1,8 @@
+---
+- name: ensure Redis packages are installed
+  package:
+    name: "{{ dubzland_redis_packages }}"
+    state: present
+  notify: enable redis
+  tags:
+    - redis
