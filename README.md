@@ -215,7 +215,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - role: dubzland-git
+    - role: dubzland-redis
 ```
 
 ## License
