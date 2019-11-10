@@ -1,4 +1,23 @@
 ---
+- when: dubzland_redis_unix_socket | length > 0
+  block:
+    - name: ensure Redis socket directory exists
+      file:
+        path: "{{ dubzland_redis_unix_socket | dirname }}"
+        owner: redis
+        group: redis
+        mode: 0755
+        state: directory
+      notify: restart redis
+
+    - name: ensure Redis socket directory is persisted
+      copy:
+        content: "d  {{ dubzland_redis_unix_socket | dirname }}  0755  redis  redis  10d  -"
+        dest: /etc/tmpfiles.d/redis.conf
+        owner: root
+        group: root
+        mode: 0600
+
 - name: ensure Redis is configured
   template:
     src: etc/redis/redis.conf.j2
