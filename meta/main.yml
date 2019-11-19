@@ -14,4 +14,4 @@ galaxy_info:
         - stretch
         - buster
   galaxy_tags:
-    - dhcp
+    - redis
