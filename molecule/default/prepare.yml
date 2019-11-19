@@ -2,7 +2,6 @@
 - name: Prepare
   hosts: all
   tasks:
-    - name: update the apt cache
-      apt:
+    - name: update the package cache
+      package:
         update_cache: True
-      when: ansible_os_family == 'Debian'

@@ -1,5 +1,5 @@
-# Dubzland: Redis
-[![Gitlab pipeline status (self-hosted)](https://img.shields.io/gitlab/pipeline/jdubz/dubzland-redis?gitlab_url=https%3A%2F%2Fgit.dubzland.net)](https://git.dubzland.net/jdubz/dubzland-redis/pipelines)
+# Ansible Role: Redis
+[![Gitlab pipeline status (self-hosted)](https://git.dubzland.net/dubzland/ansible-role-redis/badges/master/pipeline.svg)](https://git.dubzland.net/dubzland/ansible-role-redis)
 
 Installs and configures Redis.
 
